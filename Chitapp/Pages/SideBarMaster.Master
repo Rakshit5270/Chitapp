@@ -1,0 +1,250 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SideBarMaster.master.cs" Inherits="Chitapp.Pages.SideBarMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <link rel="stylesheet" href="../Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Styles/MasterSidebar.css" type="text/css" runat="server" />
+    <link rel="stylesheet" href="../Content/font-awesome.min.css" />
+    <link href="../Styles/LoginStyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server" enctype="multipart/form-data">
+        <div class="page-wrapper chiller-theme toggled">
+            <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fa fa-bars"></i>
+            </a>
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+                    <div class="sidebar-brand p-2">
+                        <img class="img-responsive img-rounded mr-2" width="40" height="40" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                            alt="User picture">
+                        <a runat="server" id="SidebarBrand" href="#"> INFRA DEV</a>
+                        <div id="close-sidebar">
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="sidebar-header">
+                        <div class="user-pic">
+                            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                                alt="User picture">
+                        </div>
+                        <div class="user-info">
+                            <span runat="server" id="User_Name" class="user-name"></span>
+                            <span runat="server" id="User_Role" class="user-role"> Administrator</span>
+                            <span class="user-status"></span>
+                        </div>
+                    </div>
+                    <!-- sidebar-items  -->
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="sidebar-dropdown">
+                                <a runat="server" id="Masters" href="#">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Masters</span>
+                                </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="CompanyMaster.aspx">
+                                                <i class="fa fa-building"></i>
+                                                <span>Company Profile</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" id="Department" href="DepartmentMaster.aspx">
+                                                <i class="fa fa-building"></i>
+                                                <span>Department</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" id="UOM" href="UOMMaster.aspx">
+                                                <i class="fa fa-balance-scale"></i>
+                                                <span>UOM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" id="Location" href="LocationMaster.aspx">
+                                                <i class="fa fa-location-arrow"></i>
+                                                <span>Location</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" id="Items" href="ItemMaster.aspx">
+                                                <i class="fa fa-location-arrow"></i>
+                                                <span>Item</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" id="Category" href="CategoryMaster.aspx">
+                                                <i class="fa fa-location-arrow"></i>
+                                                <span>Category</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a runat="server" id="Sucat" href="SubCategoryMaster.aspx">
+                                                <i class="fa fa-location-arrow"></i>
+                                                <span>Sub-Category</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="UsersMaster.aspx">
+                                                <i class="fa fa-location-arrow"></i>
+                                                <span>Users</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+                <!-- sidebar-content  -->
+                <div class="sidebar-footer">
+                    <%--<a href="#">
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-pill badge-warning notification">3</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    <span class="badge badge-pill badge-success notification">7</span>
+                </a>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    <span class="badge-sonar"></span>
+                </a>--%>
+                    <a runat="server" id="btnLogout" onserverclick="btnLogout_ServerClick" href="#">
+                        <i class="fa fa-power-off">
+                            <span>Logout</span>
+                        </i>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- page - content  -->
+            <div runat="server" visible="false" id="WarnContent" class="d-flex justify-content-center">
+                <div class="alert alert-info blink w-50 text-center" role="alert">
+                    <span runat="server" id="WarnContentText" class="text-danger"></span>
+                </div>
+            </div>
+            <main class="page-content">
+                <div class="container-fluid">
+                    <asp:ContentPlaceHolder ID="CPH1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+            </main>
+        </div>
+    </form>
+    <!-- page-wrapper -->
+    <link rel="stylesheet" href="../Content/jquery-ui.css" />
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script>
+        function checkPasswordMatch() {
+            var password = $("#txt_Password").val();
+            var confirmPassword = $("#txt_CPassword").val();
+            if (password != confirmPassword)
+                $("#CheckPasswordMatch").html("Passwords does not match!").removeClass("text-success").addClass("text-danger");
+            else
+                $("#CheckPasswordMatch").html("Passwords match.").removeClass("text-danger").addClass("text-success");
+        }
+        $(document).ready(function () {
+            $("#txt_CPassword").keyup(checkPasswordMatch);
+        });
+        $(document).ready(function () {
+            $("#txt_Password").keyup(checkPasswordMatch);
+        });
+    </script>
+    <script type="text/javascript">
+        function openModal() {
+            $("#myModal").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            var showPass = 0;
+            $('.btn-show-pass').on('click', function () {
+                if (showPass == 0) {
+                    $(this).next('input').attr('type', 'text');
+                    $(this).find('i').removeClass('mdi-eye');
+                    $(this).find('i').addClass('mdi-eye-off');
+                    showPass = 1;
+                }
+                else {
+                    $(this).next('input').attr('type', 'password');
+                    $(this).find('i').addClass('mdi-eye');
+                    $(this).find('i').removeClass('mdi-eye-off');
+                    showPass = 0;
+                }
+
+            });
+        });
+    </script>
+    <script>
+        window.addEventListener('beforeunload', (event) => {
+            var message = 'You have started writing or editing a post.';
+            console.log(loginId);
+
+            $.ajax({
+                url: "Logout.asmx/LogoutMethod",
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (x, y, z) {
+                    alert(x.responseText + "  " + x.status);
+                }
+            });
+        });
+    </script>
+    <script>
+        jQuery(function ($) {
+
+            $(".sidebar-dropdown > a").click(function () {
+                $(".sidebar-submenu").slideUp(200);
+                if (
+                    $(this)
+                        .parent()
+                        .hasClass("active")
+                ) {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .parent()
+                        .removeClass("active");
+                } else {
+                    $(".sidebar-dropdown").removeClass("active");
+                    $(this)
+                        .next(".sidebar-submenu")
+                        .slideDown(200);
+                    $(this)
+                        .parent()
+                        .addClass("active");
+                }
+            });
+
+            $("#close-sidebar").click(function () {
+                $(".page-wrapper").removeClass("toggled");
+            });
+            $("#show-sidebar").click(function () {
+                $(".page-wrapper").addClass("toggled");
+            });
+        });
+    </script>
+</body>
+</html>

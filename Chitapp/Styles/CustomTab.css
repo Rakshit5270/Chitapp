@@ -1,0 +1,42 @@
+﻿
+nav > .nav.nav-tabs {
+    border: none;
+    color: #fff;
+    background: #FF0343;
+    border-radius: 0;
+}
+
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active {
+    border: none;
+    /*padding: 18px 25px;*/
+    color: #fff;
+    background: #FF0343;
+    border-radius: 0;
+}
+
+    nav > div a.nav-item.nav-link.active:after {
+        content: "";
+        position: relative;
+        bottom: -50px;
+        left: -25%;
+        border: 15px solid transparent;
+        border-top-color: #3c2424;
+    }
+
+.tab-content {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-top: 5px solid #3c2424;
+    border-bottom: 5px solid #3c2424;
+    padding: 35px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus {
+    border: none;
+    background: #3c2424;
+    color: #fff;
+    border-radius: 0;
+    transition: background 0.20s linear;
+}
